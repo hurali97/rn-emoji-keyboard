@@ -1,7 +1,7 @@
 {
-    "name": "react-native-emoji-board",
-    "version": "1.2.1",
-    "description": "A React Native emoji keyboard/picker component for both Android and ios",
+    "name": "rn-emoji-keyboard",
+    "version": "1.0.1",
+    "description": "A React Native emoji keyboard for both Android and ios",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,24 +9,23 @@
         "minor": "npm version minor && npm publish",
         "major": "npm version major && npm publish"
     },
-    "repository": "git@github.com/liangl1412/react-native-emoji-keyboard.git",
+    "repository": "git@github.com/hurali97/rn-emoji-keyboard.git",
     "keywords": [
         "react",
         "native",
         "react-native",
         "emoji",
-        "skin-tone",
-        "component",
+        "emoji-keyboard",
         "keyboard",
         "Android",
         "ios"
     ],
-    "author": "Yi Zhou",
+    "author": "Hur Ali",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/liangl1412/react-native-emoji-keyboard/issues"
+        "url": "https://github.com/hurali97/rn-emoji-keyboard/issues"
     },
-    "homepage": "https://github.com/liangl1412/react-native-emoji-keyboard#readme",
+    "homepage": "https://github.com/hurali97/rn-emoji-keyboard",
     "dependencies": {
         "emoji-datasource": "^5.0.1",
         "lodash": "^4.17.15",
