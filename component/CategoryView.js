@@ -57,7 +57,7 @@ const CategoryView = ({
     useEffect(() => {
        
         if(emojis_page >  0){
-            console.log('emojis_page in if ',emojis_page);
+     
             let data = [
                 ...emojis_array,
                 ...getEmojis()
@@ -66,7 +66,7 @@ const CategoryView = ({
             setEmojisArray(data);
         }
         else{
-            console.log('emojis_page in else ',emojis_page);
+      
             setEmojisArray(getEmojis());
         }
         

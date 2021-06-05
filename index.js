@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
 
 var EMOJI_DATA = null;
 
-export const setEmojiData = () => {
+export const setEmojiData = async () => {
 
-    EMOJI_DATA = handleDefaultEmoji(emojiSource, defaultProps.blackList);
+    EMOJI_DATA = await handleDefaultEmoji(emojiSource, defaultProps.blackList);
     EMOJI_DATA = Object.assign({}, EMOJI_DATA);
 }
 
@@ -99,7 +99,7 @@ const EmojiBoard = ({
                     />
                 )}
                 initialPage={0}
-                prerenderingSiblingsNumber={Infinity}
+                prerenderingSiblingsNumber={1}
                 
                 style={styles.scrollTable}>
 

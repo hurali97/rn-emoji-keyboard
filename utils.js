@@ -22,7 +22,7 @@ export const isAndroid = () => {
     return Platform.OS === 'android';
 };
 
-export const handleDefaultEmoji = (data, blackList) => {
+export const handleDefaultEmoji = async (data, blackList) => {
     // const filteredData = data.filter(e => !_.includes(blackList, e.short_name));
     const sortedData = _.orderBy(data, 'sort_order');
     const groupedData = _.groupBy(sortedData, 'category');
@@ -37,7 +37,9 @@ export const handleDefaultEmoji = (data, blackList) => {
             };
         })
     );
-    return transformData;
+
+    
+    return Promise.resolve(transformData);
 };
 
 export const handleCustomEmoji = (data, blackList) => {
