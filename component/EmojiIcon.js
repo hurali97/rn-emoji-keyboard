@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { vh, vw } from 'react-native-emoji-board/Units';
+import { vh, vw } from '../Units';
 
 const styles = StyleSheet.create({
     emojiTouch: {

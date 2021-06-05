@@ -4,7 +4,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import EmojiIcon from './EmojiIcon';
 import { useEffect } from 'react';
-import { vw } from 'react-native-emoji-board/Units';
+import { vw } from '../Units';
 
 const { width } = Dimensions.get('window');
 

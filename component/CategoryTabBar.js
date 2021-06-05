@@ -10,7 +10,7 @@ import MaIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontIcon from 'react-native-vector-icons/FontAwesome';
 import { isIphoneXorAbove } from '../utils';
 import { IconType } from '../constant';
-import { vh,vw } from 'react-native-emoji-board/Units';
+import { vh,vw } from '..//Units';
 
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
