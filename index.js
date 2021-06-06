@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 var EMOJI_DATA = null;
 
 export const setEmojiData = async () => {
-
+    console.log('setEmojiData ', setEmojiData);
     EMOJI_DATA = await handleDefaultEmoji(emojiSource, defaultProps.blackList);
     EMOJI_DATA = Object.assign({}, EMOJI_DATA);
 }
@@ -52,7 +52,7 @@ const EmojiBoard = ({
     labelStyle = {},
     height = 300
 }) => {
-  
+
     let groupsView = [];
     _.each(categories, (category, key) => {
         const { name } = category;
@@ -75,6 +75,7 @@ const EmojiBoard = ({
         return null;
     }
 
+ 
     return (
         <View
             style={[
@@ -100,12 +101,13 @@ const EmojiBoard = ({
                 )}
                 initialPage={0}
                 prerenderingSiblingsNumber={1}
-                
                 style={styles.scrollTable}>
 
                 {groupsView}
 
             </ScrollableTabView>
+
+
 
         </View>
     );
@@ -149,4 +151,4 @@ EmojiBoard.propTypes = {
     labelStyle: PropTypes.object
 };
 
-export default EmojiBoard;
+export default React.memo(EmojiBoard);

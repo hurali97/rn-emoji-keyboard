@@ -4,9 +4,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import EmojiIcon from './EmojiIcon';
 import { useEffect } from 'react';
-import { vw } from '../Units';
-
-const { width } = Dimensions.get('window');
+import { vh, vw } from '../Units';
 
 const styles = StyleSheet.create({
     categoryView: {
@@ -29,6 +27,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
+
+const ITEM_HEIGHT = 6 * vh;
 
 const CategoryView = ({
     category,
@@ -55,9 +55,9 @@ const CategoryView = ({
 
 
     useEffect(() => {
-       
-        if(emojis_page >  0){
-     
+
+        if (emojis_page > 0) {
+
             let data = [
                 ...emojis_array,
                 ...getEmojis()
@@ -65,11 +65,11 @@ const CategoryView = ({
 
             setEmojisArray(data);
         }
-        else{
-      
+        else {
+
             setEmojisArray(getEmojis());
         }
-        
+
 
     }, [emojis_page]);
 
@@ -86,7 +86,7 @@ const CategoryView = ({
 
     const getEmojis = () => {
         let data = [];
-   
+
         if (emojis_page < pages) {
             data = _.slice(
                 emojis,
@@ -107,8 +107,8 @@ const CategoryView = ({
     }
 
 
-    renderItem = ({ item }) => {
-   
+    const renderItem = ({ item }) => {
+
         return <EmojiIcon
             emoji={item}
             clickEmoji={clickEmoji}
@@ -116,20 +116,26 @@ const CategoryView = ({
         />
     }
 
+    const getItemLayout = (data, index) => {
+        return { length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index }
+    }
+
+
     return (
-  
-            <FlatList
-                showsVerticalScrollIndicator={false}
-                ListHeaderComponent={tabBar}
-                renderItem={renderItem}
-                data={emojis_array}
-                numColumns={numCols}
-                onEndReachedThreshold={0.16}
-                onEndReached={onEndReached}
-                contentContainerStyle={{paddingLeft: 1 * vw,}}
-                keyExtractor={item=>String(item?.name)}
-                removeClippedSubviews
-            />
+
+        <FlatList
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={tabBar}
+            renderItem={renderItem}
+            data={emojis_array}
+            numColumns={numCols}
+            onEndReachedThreshold={0.16}
+            onEndReached={onEndReached}
+            contentContainerStyle={{ paddingLeft: 1 * vw, }}
+            keyExtractor={item => String(item?.name)}
+            removeClippedSubviews
+            getItemLayout={getItemLayout}
+        />
 
     );
 };

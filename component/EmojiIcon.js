@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 1 * vw,
         justifyContent: 'center',
         width: 10 * vw,
-   
+        height: 6 * vh,
     },
     emoji: {
         textAlign: 'center'
@@ -27,16 +27,24 @@ const EmojiIcon = ({
     clickEmoji,
 }) => {
     const { code, img } = emoji;
+
+    const onClick = () => {
+        clickEmoji(emoji)
+        // console.log('code ',code);
+    }
+
     return (
         <TouchableOpacity
             style={styles.emojiTouch}
-            onPress={() => clickEmoji(emoji)}
+            onPress={onClick}
             activeOpacity={0.7}
+
         >
             {code ?
                 <Text style={[styles.emoji, { fontSize: 3.5 * vh }]}>{code}</Text> :
                 <Image source={{ uri: img }} style={styles.emojiImg} />
             }
+          
         </TouchableOpacity>
     );
 };
